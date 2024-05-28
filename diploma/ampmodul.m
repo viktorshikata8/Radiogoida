@@ -6,39 +6,40 @@ Ikont=[4 9 14 20 26 33 43 46 51 56];
 k=k+1;
 maxsig(k)=sigmax;
 %% Ik0
-Ebmodul=[0.33 0.39:0.05:0.59 0.65:0.05:1]
-ik0modul(:)=1000*10.^((-[47.08 43.4 40.81 38.56 36.59 34.84 32.96 31.59 30.26 29.07 28.32 27.68 26.86 25.994]./20));
+Ebmodul=[0.33 0.39:0.05:0.59 0.65:0.05:1 1.5:0.5:4]
+ik0modul(:)=1000*10.^((-[47.08 43.4 40.81 38.56 36.59 34.84 32.96 31.59 30.26 29.07 28.32 27.68 26.86 25.994 17.949 13.379 10.359 8.114 6.333 4.862]./20));
 plot(Eb, Ik0,'-o',Ebmodul,ik0modul,'LineWidth',2,'Color','k')
 title('Зависимость постоянной составляющей тока коллектора от напряжения смещения')
-xlabel('Eб, В','FontSize',14,'FontWeight','bold')
-ylabel('Ik0, мА','FontSize',14,'FontWeight','bold')
+xlabel('Eб, В','FontSize',22,'FontWeight','bold')
+ylabel('Ik0, мА','FontSize',22,'FontWeight','bold')
 grid on
 legend('Результаты эксперимента','Результаты моделирования',Location='northwest')
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35;
 %% Iконт
-Ebmodul=[0.33 0.39:0.05:0.59 0.65:0.05:1]
-maxsigikont=1000*[0.0106072606457668	0.0148914543818824	0.0190267659959878	0.0236344571377160	0.0286175040618517	0.0338710025298805	0.0404020710204195	0.0459307330735354	0.0514526516418691	0.0569011459786893 0.065179	0.0728370955877444 0.075361	0.0764853318406958]
+Ebmodul=[0.33 0.39:0.05:0.59 0.65:0.05:1 1.5:0.5:4]
+maxsigikont=1000*[0.0106072606457668	0.0148914543818824	0.0190267659959878	0.0236344571377160	0.0286175040618517	0.0338710025298805	0.0404020710204195	0.0459307330735354	0.0514526516418691	0.0569011459786893 0.065179	0.0728370955877444 0.075361	0.0794853318406958 0.07785  0.068319 0.056781 0.043318 0.02956 0.014183]
 plot(Eb, Ikont,'-o',Ebmodul,maxsigikont,'LineWidth',2,'Color','k')
 title('Статическая модуляционная характеристика ')
-xlabel('Eб, В','FontSize',14,'FontWeight','bold')
-ylabel('Ikонт, мА','FontSize',14,'FontWeight','bold')
+xlabel('Eб, В','FontSize',22,'FontWeight','bold')
+ylabel('Ikонт, мА','FontSize',22,'FontWeight','bold')
 grid on
-legend('Результаты эксперимента','Результаты моделирования',Location='northwest')
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35
 %% базовая модуляция ДМХ
 uomega=[.01 0.02 0.027 0.029 0.036 0.041 0.048 0.059 0.068 0.082 0.098 0.114 0.128 0.141 0.16 0.178 0.194 ];
 mpositive=[2 11 17 22 28 32 39 48 53 62 69 77 82 86 92 97 100];
 mnegative=[2 11 16 21 27 31 37 46 51 61 71 79 85 89 94 97 99];
-mpos=100*[1.88/31.1 4.53/30.3 5.68/30.6 6.015/30.5 7.312/30.5 8.208/30.6 9.38/30.9 11.43/31.04 13.01/31 15.29/31.89 17.88/32.3 20.72/32.7 23.11/33.3 25.16/34 27.99/35.31 30.6/36.6 0.9001];
-mneg=100*[2.4/26.4 4.069/26.4 5.298/26.6 5.50/26.7 6.7/26.6 7.568/26.7 8.695/26.7 10.37/27.01 11.874/27.3 13.895/27.8 16.49/28.3 19.027/29.02 21.11/29.7 23.05/30.4 25.26/31.62 28.02/33.6 0.89];
+mpos=100*[1.88/31.1 4.53/30.3 5.68/30.6 6.015/30.5 7.312/30.5 8.208/30.6 9.38/30.9 11.43/31.04 13.01/31 15.29/31.89 17.88/32.3 20.72/32.7 23.11/33.3 25.16/34 27.99/35.31 30.6/36.6 0.9001 0.92 0.95 0.99];
+mneg=100*[2.4/26.4 4.069/26.4 5.298/26.6 5.50/26.7 6.7/26.6 7.568/26.7 8.695/26.7 10.37/27.01 11.874/27.3 13.895/27.8 16.49/28.3 19.027/29.02 21.11/29.7 23.05/30.4 25.26/31.62 28.02/33.6 0.89 0.91 0.94 0.97];
 %%
-plot(uomega,mnegative,'--', uomega, mneg,'-o','LineWidth',2,'Color','k')
+uomegamod=[.01 0.02 0.027 0.029 0.036 0.041 0.048 0.059 0.068 0.082 0.098 0.114 0.128 0.141 0.16 0.178 0.194:0.015:0.25];
+plot(uomega,mnegative,'-o', uomegamod, mneg,'LineWidth',2,'Color','k')
 title('Динамическая модуляционная характеристика ')
-xlabel('U, В','FontSize',12,'FontWeight','bold')
-ylabel('m,%','FontSize',12,'FontWeight','bold')
-legend('Результаты эксперимента','Результаты моделирования',Location='southeast')
+xlabel('U, В','FontSize',22,'FontWeight','bold')
+ylabel('m,%','FontSize',22,'FontWeight','bold')
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
 grid on
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 18; ax.GridAlpha = 0.35
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35
 %% базовая модуляция ДМХ частоты
 F=[10 20 40 80 100 200 400 800 1000:1000:8000];
 mpositive=[7 12 20 30 34 43 50 52 54 52 46 41 37 31 29 26]
@@ -47,56 +48,84 @@ pos=[]
 neg=[]
 plot(F,mpositive,'--o', F, mnegative,'-o','LineWidth',2,'Color','k')
 title('Зависимость ДМХ от частоты ')
-xlabel('F, Гц','FontSize',12,'FontWeight','bold')
-ylabel('m,%','FontSize',12,'FontWeight','bold')
+xlabel('F, Гц','FontSize',22,'FontWeight','bold')
+ylabel('m,%','FontSize',22,'FontWeight','bold')
 legend('m+','m-')
 grid on
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 18; ax.GridAlpha = 0.35
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35
+%%
+k=0
+%%
+[sig,sigmax]=read_signal('ek10CSV.csv',0.006);
+k=k+1;
+maxsig(k)=sigmax;
 %% коллекторная модуляция СМХ
 Ek=[1 1.5 2 2.5 3.1 3.6 4 4.5 5.1 5.5 6.2 6.5 7 7.5 8 8.5 9 9.6 10 10.5 11];
 Ik0=[15 20 21 22 22 23 23 23 24 25 25 25 25 25 25 25 25 25 25 25 25];
 Ikont=[9 15 19 23 26 29 30 32 34 36 37 38 38 40 41 41 42 42 43 43 44];
 %% Ik0
-plot(Ek, Ik0,'-o','LineWidth',2,'Color','k')
+Ekmodul=[1:0.5:10.5 12:2:18];
+ik0modul(:)=1000*10.^(-[49.98 48.69 47.65 46.73 45.89 45.12 44.42 43.76 43.154 42.579 42.036 41.521 41.031 40.565 40.118 39.69 39.279 38.882 38.5 38.13 37.086 35.821 34.849 34.782]./20);
+%%
+plot(Ek, Ik0,'-o',Ekmodul,ik0modul,'LineWidth',2,'Color','k')
 title('Зависимость постоянной составляющей тока коллектора от амплитудного напряжения на коллекторе ')
-xlabel('Eб, В','FontSize',12,'FontWeight','bold')
-ylabel('Ik0, мА','FontSize',12,'FontWeight','bold')
+xlabel('Eк, В','FontSize',22,'FontWeight','bold')
+ylabel('Ik0, мА','FontSize',22,'FontWeight','bold')
 grid on
 grid on
-legend('Ik0=f(Eк)')
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 18; ax.GridAlpha = 0.35
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35
 %% Iконт
-plot(Ek, Ikont,'-o','LineWidth',2,'Color','k')
+Ekmodul=[1:0.5:10.5 12:2:18];
+Ikontmodul=1000*[0.00682277590161183 0.009112 0.0113741819561351 0.013608 0.0158201606994955 0.01807 0.0201811144151683 0.022325 0.0244737017028443 0.026587 0.0287122659009670 0.030789 0.0329052655181824 0.034943 0.0370575420826635 0.039076 0.0411537183337162 0.043093 0.0440886101528097 0.044157 0.044391 0.044686 0.044976 0.045236];
+plot(Ek, Ikont,'-o',Ekmodul,Ikontmodul,'LineWidth',2,'Color','k')
 title('Статическая модуляционная характеристика ')
-xlabel('Eк, В','FontSize',12,'FontWeight','bold')
-ylabel('Ikонт, мА','FontSize',12,'FontWeight','bold')
+xlabel('Eк, В','FontSize',22,'FontWeight','bold')
+ylabel('Ikонт, мА','FontSize',22,'FontWeight','bold')
 grid on
-legend('Ikont=f(Eк)')
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35;
 %% коллекторная модуляция ДМХ
 uomega=[0.1 0.5 0.8 1.2 1.4 1.8 2.1 2.4 2.8 3.1];
-mpositive=[7 20 29 42 51 65 74 86 95 100]
-mnegative=[6 19 30 44 54 69 81 94 100 100]
-plot(uomega,mpositive, uomega, mnegative)
+mpositive=[7 20 29 42 51 65 74 86 95 100];
+mnegative=[6 19 30 44 54 69 81 94 100 100];
+mpos=100*[1.5/45 7.5/45 12.12/45 18.2/44.6 21.30/44.82 27.04/44.8 31.998/44.6 36.5/44.6 42.3/44.91 0.98 1 1 1]
+mneg=100*[1.5/46.5 7.8/46.5 12.6/45.4 18.9/46.6 22.09/46.4 28.4/46.2 33.114/46.3 37.89/46.21 43.99/46.3 0.99 1 1 1]
+%%
+uomegamod=[0.1 0.5 0.8 1.2 1.4 1.8 2.1 2.4 2.8 3.1 3.5 4 5];
+plot(uomega,mpositive,'-o', uomegamod, mpos,'LineWidth',2,'Color','k')
+title('Динамическая модуляционная характеристика ')
+xlabel('U, В','FontSize',22,'FontWeight','bold')
+ylabel('m,%','FontSize',22,'FontWeight','bold')
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
 grid on
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 22; ax.GridAlpha = 0.35
 %% коллекторная модуляция ДМХ частоты
 F=[10 20 40 80 100 200 400 800 1000:1000:8000];
 mpositive=[47 47 48 48 47 48 48 47 48 47 46 45 44 42 40 39];
 mnegative=[50 51 51 51 51 51 51 51 51 51 49 48 46 45 43 41];
-plot(F,mpositive, F, mnegative)
+mpos=100*[0.229 0.239 0.253 0.268 13.43/45 18.87/44.874 21.75/45.8 22.702/44.88 22.83/44.84 22.96/44.8 22.99/44.6 23.148/44.4 23.25/44.1 22.64/44.7 21.84/45.6 20.72/46.5 18.73/47.82 16.75/49.32 14.695/50.61 12.99/51.4 12.30/53.7 11.83/54.29]
+mneg=100*[0.234 0.246 0.255 0.275 13.928/46.8 19.759/46.466 22.55/46.44 23.542/46.450 23.67/46.43 23.84/46.41 23.95/46.25 24.08/46.1 24.3/45.86 23.88/47.3 23/47.01 22.07/47.8 19.932/49.72 18.362/51.2 17.286/52.9 15.53/54.02 14.86/56.5 14.03/57.4] 
+%%
+Fmod=[10 20 40 80 100 200 400 800 1000:1000:8000 10000:2000:20000];
+plot(F,mnegative,'-o', Fmod, mneg,'LineWidth',2,'Color','k')
+title('Динамическая модуляционная характеристика ')
+xlabel('F, Гц','FontSize',22,'FontWeight','bold')
+ylabel('m,%','FontSize',22,'FontWeight','bold')
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
+grid on
 grid on
 ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
 %% коллекторная модуляция СМХ комбинированная цепь
 Ek1=[1:1:10];
-ikont=[7.143 11.984 16.764 21.568 26.342 31.104 35.927 40.363 40.657 40.915]
+ikont=[7.143 11.984 16.764 21.568 26.342 31.104 35.927 40.363 40.657 40.915];
 Ikont1=rot90(rot90([42 39 37 34 31 28 24 20 15 8]));
-plot(Ek1, Ikont1,'--o',Ek1,ikont,'-o','LineWidth',2,'Color','k')
+plot(Ek1, ikont,'-o',Ek1,Ikont1,'LineWidth',2,'Color','k')
 title('Статическая модуляционная характеристика при комбинированном подключении ')
-xlabel('Eк, В','FontSize',12,'FontWeight','bold')
-ylabel('Ikонт, мА','FontSize',12,'FontWeight','bold')
-legend('Результаты эксперимента','Результаты моделирования')
-ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
+xlabel('Eк, В','FontSize',22,'FontWeight','bold')
+ylabel('Ikонт, мА','FontSize',22,'FontWeight','bold')
+legend('Результаты эксперимента','Результаты моделирования',Location='best')
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 24; ax.GridAlpha = 0.35;
 grid on
 %% коллекторная модуляция автосмещение
 Ek=[10.1 9:-1:1];
@@ -107,3 +136,7 @@ EbR4=[0.65 0.64 0.63 0.62 0.61 0.6 0.59 0.58 0.57 0.56]
 uomega=[0.3 0.4 0.7 1.1 1.4 1.7 2.2 2.7 3.4 4 4.4 5.3 5.8 6.3 6.6 6.8];
 mpositive=[2 9 16 23 27 32 41 50 65 78 82 90 94 96 98 100];
 mnegative=[1 9 16 23 29 34 47 62 90 100 100 100 100 100 100 100]
+%% КПД 
+Ppitanie=55.25;
+Pkontur=7.57;
+KPDtelephtochk=Pkontur/Ppitanie
