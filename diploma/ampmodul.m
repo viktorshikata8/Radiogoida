@@ -118,9 +118,10 @@ grid on
 ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 14; ax.GridAlpha = 0.35;
 %% коллекторная модуляция СМХ комбинированная цепь
 Ek1=[1:1:10];
-ikont=[7.143 11.984 16.764 21.568 26.342 31.104 35.927 40.363 40.657 40.915];
+Ek2=[1:1:12];
+ikont=[7.143 11.984 16.764 21.568 26.342 31.104 35.927 39 42 45 50 51];
 Ikont1=rot90(rot90([42 39 37 34 31 28 24 20 15 8]));
-plot(Ek1, ikont,'-o',Ek1,Ikont1,'LineWidth',2,'Color','k')
+plot(Ek1, Ikont1,'-o',Ek2,ikont,'LineWidth',2,'Color','k')
 title('Статическая модуляционная характеристика при комбинированном подключении ')
 xlabel('Eк, В','FontSize',22,'FontWeight','bold')
 ylabel('Ikонт, мА','FontSize',22,'FontWeight','bold')
