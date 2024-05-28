@@ -2,7 +2,7 @@
 Eb=[0.33 0.39:0.05:0.59 0.65:0.05:0.8];
 Ik0=[2 5 7 10 13 18 25 28 36 40];
 Ikont=[4 9 14 20 26 33 43 46 51 56];
-[sig,sigmax]=read_signal('eb100.csv',0.006);
+%[sig,sigmax]=read_signal('eb100.csv',0.006);
 k=k+1;
 maxsig(k)=sigmax;
 %% Ik0
@@ -136,6 +136,17 @@ EbR4=[0.65 0.64 0.63 0.62 0.61 0.6 0.59 0.58 0.57 0.56]
 uomega=[0.3 0.4 0.7 1.1 1.4 1.7 2.2 2.7 3.4 4 4.4 5.3 5.8 6.3 6.6 6.8];
 mpositive=[2 9 16 23 27 32 41 50 65 78 82 90 94 96 98 100];
 mnegative=[1 9 16 23 29 34 47 62 90 100 100 100 100 100 100 100]
+%% ads
+m=[0 16.6 35.4 53.7 66.3 90 96 100];
+kpdbaza=0.1*[0.05 18.18 18.34 19.355 21.34 30.668 33.8 1.4]
+kpdcoll=0.1*[137.125 138.915 144.551 154.088 167.581 185.124 205.54 225.95];
+plot(m,kpdbaza,'-o',m,kpdcoll,'LineWidth',2,'Color','k')
+title('Зависимость КПД от глубины модуляции ')
+xlabel('m, %','FontSize',22,'FontWeight','bold')
+ylabel('КПД, %','FontSize',22,'FontWeight','bold')
+legend('Базовая Модуляция','Коллекторная Модуляция',Location='best')
+ax = gca; ax.FontWeight = 'bold'; ax.FontSize = 24; ax.GridAlpha = 0.35;
+grid on
 %% КПД 
 Ppitanie=55.25;
 Pkontur=7.57;
